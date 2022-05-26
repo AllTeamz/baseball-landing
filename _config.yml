@@ -29,8 +29,7 @@ instagram_username                        : softballbound_app
 twitter_username                          : allteamz
 github_username                           : 
 youtube_username                          :
-
-
+logo                                      : <link rel="shortcut icon" href="{{ site.app_icon | relative_url }}">
 
 # Feature List                            Edit, add or remove features to be presented.
 features                                  :
@@ -95,7 +94,8 @@ social_icons_background_color             : "#e6e6e6"
 
 footer_text_color                         : "#666666"
 
-
+plugins:
+  - jekyll-seo-tag
 
 
 
