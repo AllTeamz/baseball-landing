@@ -30,9 +30,11 @@ instagram_username                        : softballbound_app
 twitter_username                          : allteamz
 github_username                           : 
 youtube_username                          :
-logo                                      : assets/bbicon.jpeg
-image                                     : assets/bbicon.jpeg
-site_name                                 : Baseball Bound - Recruiting Assistant App for College Baseball 
+logo                                      : /assets/bbicon.jpeg
+image                                     : /assets/bbicon.jpeg
+site_name                                 : Baseball Bound - Recruiting Assistant App for College Baseball
+title                                     : Baseball Bound - Recruiting Assistant App for College Baseball
+description                               : Own the recruiting process by putting every coach in your pocket!
 
 # Feature List                            Edit, add or remove features to be presented.
 features                                  :
