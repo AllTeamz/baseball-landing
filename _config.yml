@@ -19,6 +19,13 @@ enable_smart_app_banner                   : true                                
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-analytics
+
+# Analytics
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-34749448-4          # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 # Information About Yourself
 your_name                                 : AllTeamz                               
