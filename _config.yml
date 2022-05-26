@@ -17,7 +17,8 @@ app_description                           : Own the recruiting process by puttin
 
 enable_smart_app_banner                   : true                                      # Set to true to show a smart app banner at top of page on mobile devices.
 
-
+plugins:
+  - jekyll-seo-tag
 
 # Information About Yourself
 your_name                                 : AllTeamz                               
@@ -94,9 +95,6 @@ social_icons_foreground_color             : "#666666"
 social_icons_background_color             : "#e6e6e6"
 
 footer_text_color                         : "#666666"
-
-plugins:
-  - jekyll-seo-tag
 
 
 
