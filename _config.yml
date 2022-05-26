@@ -29,7 +29,7 @@ instagram_username                        : softballbound_app
 twitter_username                          : allteamz
 github_username                           : 
 youtube_username                          :
-logo                                      : <link rel="shortcut icon" href="{{ site.app_icon | relative_url }}">
+logo                                      : assets/bbicon.jpeg
 
 # Feature List                            Edit, add or remove features to be presented.
 features                                  :
