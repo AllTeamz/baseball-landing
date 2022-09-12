@@ -46,7 +46,7 @@ features                                  :
     description                           : Sort and views schools by state, division, conference, or name.
     fontawesome_icon_name                 : sort
     
-  - title                                 : All NCAA and NAIA schools
+  - title                                 : All NCAA, NAIA, and JUCO schools
     description                           : Every college with baseball teams, over 1200 schools.
     fontawesome_icon_name                 : school
 
