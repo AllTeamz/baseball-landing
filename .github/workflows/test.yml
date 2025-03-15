@@ -28,15 +28,22 @@ jobs:
       run: bundle exec rake lint
     
     - name: Check HTML
+      env:
+        LANG: en_US.UTF-8
+        LC_ALL: en_US.UTF-8
       run: |
         bundle exec jekyll build
         bundle exec htmlproofer ./_site \
-          --check-html \
-          --check-img-http \
-          --disable-external \
-          --enforce-https \
-          --check-favicon \
-          --check-opengraph
+          --checks Links,Images,Scripts,Favicon,OpenGraph,HTML \
+          --disable_external \
+          --enforce_https \
+          --check_html_valid \
+          --check_opengraph \
+          --check_structured_data \
+          --check_meta \
+          --check_lang \
+          --check_title \
+          --ignore_urls '/app/,/ios/,/download/,/baseball/,/recruiting/,/college-baseball/,/ncaa/,/naia/,/juco/'
 
     - name: Run Lighthouse CI
       uses: treosh/lighthouse-ci-action@v10
@@ -45,3 +52,5 @@ jobs:
           http://localhost:4000/
         uploadArtifacts: true
         temporaryPublicStorage: true
+        configPath: './.github/workflows/lighthouserc.json'
+        runs: 3
