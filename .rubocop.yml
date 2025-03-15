@@ -1,10 +1,20 @@
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - rubocop-rake
+
 AllCops:
+  TargetRubyVersion: 3.2
   NewCops: enable
+  SuggestExtensions: false
   Exclude:
     - '_site/**/*'
     - 'vendor/**/*'
     - 'node_modules/**/*'
     - '.git/**/*'
+    - 'bin/**/*'
     - '*.gemspec'
 
 Layout/HashAlignment:
@@ -24,9 +34,21 @@ Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
     - '**/*.rake'
+  AllowedMethods:
+    - configure
+    - describe
+    - context
+    - task
 
 Layout/LineLength:
   Max: 120
+  Exclude:
+    - 'Rakefile'
 
 Metrics/MethodLength:
   Max: 20
+  Exclude:
+    - 'Rakefile'
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false

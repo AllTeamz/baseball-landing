@@ -26,6 +26,6 @@ group :development, :test do
   gem 'rake', '~> 13.1'  # Task automation
   gem 'rubocop', '~> 1.42.0', require: false  # Ruby style checking
   gem 'rubocop-performance', '~> 1.15', require: false
-  gem 'kramdown-parser-gfm', '~> 1.1.0'  # Required for GitHub Flavored Markdown
+  gem 'rubocop-rake', '~> 0.6.0', require: false  # Rake-specific RuboCop rules
   gem 'faraday-retry', '~> 2.2'  # Required for Faraday v2.0+ retry middleware
 end

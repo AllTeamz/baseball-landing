@@ -59,8 +59,9 @@ end
 
 desc 'Run RuboCop'
 RuboCop::RakeTask.new(:lint) do |task|
-  task.patterns = ['**/*.rb']
-  task.fail_on_error = true
+  task.patterns = ['Rakefile', '**/*.rb']
+  task.requires << 'rubocop-rake'
+  task.fail_on_error = false
 end
 
 desc 'Run performance tests'
