@@ -7,7 +7,7 @@ task :build do
 end
 
 desc 'Test the built site'
-task :test => :build do
+task test: :build do
   options = {
     # Basic SEO checks based on requirements
     check_html: true,
@@ -15,7 +15,7 @@ task :test => :build do
     check_favicon: true,
     check_img_http: true,
     enforce_https: true,
-    
+
     # Allow our SEO-friendly redirects
     url_ignore: [
       # Common URL variations
@@ -29,29 +29,29 @@ task :test => :build do
       # Division-specific URLs
       %r{/ncaa/?},
       %r{/naia/?},
-      %r{/juco/?}
+      %r{/juco/?},
     ],
-    
+
     # HTML5 and Schema.org validation
     validation: {
       report_missing_names: true,
       report_missing_doctype: true,
       report_missing_lang: true,
-      report_missing_title: true
+      report_missing_title: true,
     },
-    
+
     # Performance settings
     parallel: { in_processes: 3 },
     hydra: { max_concurrency: 50 },
-    
+
     # Development settings
     disable_external: true,
-    internal_domains: ['localhost:4000']
+    internal_domains: ['localhost:4000'],
   }
-  
+
   begin
     HTMLProofer.check_directory('./_site', options).run
-  rescue => e
+  rescue StandardError => e
     puts "HTMLProofer error: #{e.message}"
     exit 1
   end
@@ -59,7 +59,7 @@ end
 
 desc 'Run RuboCop'
 RuboCop::RakeTask.new(:lint) do |task|
-  task.patterns = ['**/*.rb']
+  task.patterns = ['Rakefile', '**/*.rb']
   task.fail_on_error = true
 end
 
@@ -70,4 +70,4 @@ task :perf do
 end
 
 desc 'Run all tests'
-task :default => [:test, :lint, :perf]
+task default: %i[test lint perf]
