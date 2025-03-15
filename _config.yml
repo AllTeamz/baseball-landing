@@ -159,6 +159,16 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - vendor
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
+  - node_modules
+  - tmp
+  - .sass-cache
+  - .jekyll-cache
+  - .git
 
 # Theme Settings
 topbar_color: "#000000"
