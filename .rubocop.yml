@@ -1,0 +1,32 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - '_site/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - '.git/**/*'
+    - '*.gemspec'
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
