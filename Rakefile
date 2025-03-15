@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
 require 'html-proofer'
 require 'rubocop/rake_task'
+
+# Ensure UTF-8 encoding
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
 
 desc 'Build the site'
 task :build do
@@ -9,15 +15,17 @@ end
 desc 'Test the built site'
 task :test => :build do
   options = {
-    # Basic SEO checks based on requirements
-    check_html: true,
-    check_opengraph: true,
-    check_favicon: true,
-    check_img_http: true,
-    enforce_https: true,
-    
+    # Configure checks
+    checks: [
+      'Links',     # Check all hyperlinks
+      'Images',    # Verify image sources exist
+      'Scripts',   # Validate script references
+      'Favicon',   # Ensure favicon is present
+      'OpenGraph'  # Validate OpenGraph tags
+    ],
+
     # Allow our SEO-friendly redirects
-    url_ignore: [
+    ignore_urls: [
       # Common URL variations
       %r{/app/?},
       %r{/ios/?},
@@ -31,7 +39,7 @@ task :test => :build do
       %r{/naia/?},
       %r{/juco/?}
     ],
-    
+
     # HTML5 and Schema.org validation
     validation: {
       report_missing_names: true,
@@ -39,14 +47,17 @@ task :test => :build do
       report_missing_lang: true,
       report_missing_title: true
     },
-    
+
     # Performance settings
     parallel: { in_processes: 3 },
-    hydra: { max_concurrency: 50 },
-    
+    max_concurrency: 50,
+
     # Development settings
     disable_external: true,
-    internal_domains: ['localhost:4000']
+    internal_domains: ['localhost:4000'],
+
+    # Enforce HTTPS
+    enforce_https: true
   }
   
   begin
