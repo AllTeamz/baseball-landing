@@ -5,5 +5,65 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-5N6HK2SMN0');
+  // Basic configuration
+  gtag('config', 'G-5N6HK2SMN0', {
+    'page_title': document.title,
+    'page_path': window.location.pathname,
+    'site_speed_sample_rate': 100
+  });
+
+  // Track redirects
+  if (document.referrer) {
+    gtag('event', 'redirect', {
+      'event_category': 'Navigation',
+      'event_label': document.referrer,
+      'referrer': document.referrer,
+      'destination': window.location.href
+    });
+  }
+
+  // Performance tracking
+  if (window.performance) {
+    gtag('event', 'timing_complete', {
+      'name': 'load',
+      'value': Math.round(performance.now()),
+      'event_category': 'Performance'
+    });
+  }
+
+  // Track app store clicks
+  document.addEventListener('DOMContentLoaded', function() {
+    const appStoreLinks = document.querySelectorAll('.appStoreLink, .playStoreLink');
+    appStoreLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        gtag('event', 'app_store_click', {
+          'event_category': 'Conversion',
+          'event_label': this.className,
+          'destination': this.href
+        });
+      });
+    });
+  });
+</script>
+
+<!-- Web Vitals Tracking -->
+<script defer src="https://unpkg.com/web-vitals"></script>
+<script>
+  function sendToGoogleAnalytics({name, delta, value, id}) {
+    gtag('event', name, {
+      event_category: 'Web Vitals',
+      value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+      event_label: id,
+      non_interaction: true,
+    });
+  }
+
+  // When Web Vitals loads, start tracking
+  window.addEventListener('load', function() {
+    if (typeof webVitals !== 'undefined') {
+      webVitals.getCLS(sendToGoogleAnalytics);
+      webVitals.getFID(sendToGoogleAnalytics);
+      webVitals.getLCP(sendToGoogleAnalytics);
+    }
+  });
 </script>

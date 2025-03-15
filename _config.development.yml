@@ -1,0 +1,32 @@
+# Development-specific settings
+url: "http://localhost:4000"
+environment: development
+
+# Disable analytics in development
+google_analytics: null
+
+# More detailed error output
+show_drafts: true
+verbose: true
+profile: true
+
+# Disable compression in development for easier debugging
+compress_html:
+  ignore:
+    envs: [development]
+
+jekyll-minifier:
+  enabled: false
+
+# Development-specific asset settings
+assets:
+  debug: true
+  source_maps: true
+  compression: false
+  gzip: false
+  cdn: false
+
+# Development-specific sass settings
+sass:
+  style: expanded
+  sourcemap: true

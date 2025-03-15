@@ -14,10 +14,10 @@
 		{% endif %}
 
 		{% if site.twitter_username %}
-			<a href="https://twitter.com/{{ site.twitter_username }}">
+			<a href="https://x.com/{{ site.twitter_username }}">
 				<span class="fa-stack fa-1x">
 					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-twitter fa-stack-1x"></i>
+					<i class="socialIconTop fab fa-x fa-stack-1x"></i>
 				</span>
 			</a>
 		{% endif %}
@@ -51,10 +51,7 @@
 
 	</div>
 	<div class="footerLinks">
-		<!-- Removing the pages for what's new and privacy policy -->
-		<!-- {% for page in site.pages %}
-			<a href="{{ page.url | relative_url }}" target="_self">{{ page.title }}</a> 
-		{% endfor %} -->
+		<a href="{{ '/privacy' | relative_url }}" class="footer-link">Privacy Policy</a>
 		{% if site.presskit_download_link %}
 			<a href="{{ site.presskit_download_link }}">Press Kit</a>
 		{% endif %}

@@ -1,47 +1,84 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    $(function() {
+        // Preload the screenshot with proper path handling
+        var screenshotPath = '{{ "/assets/screenshot/baseballboundscreen.jpeg" | relative_url }}';
+        var img = new Image();
+        img.src = screenshotPath;
+        
+        img.onload = function() {
+            var $screen = $(".iphoneScreen");
+            $screen.attr({
+                src: screenshotPath,
+                alt: '{{ site.app_name }} App Interface Screenshot - Showcasing the recruiting dashboard and player profile features',
+                loading: "eager",
+                width: "375",
+                height: "812",
+                decoding: "async",
+                fetchpriority: "high"
+            });
+            $screen.removeClass("hidden");
+            $screen.css("opacity", 0);
+            $screen.animate({opacity: 1}, 400);
+        };
+        
+        img.onerror = function() {
+            console.error("Failed to load screenshot");
+            // Fallback to checking static files
+            {% for file in site.static_files %}
+                {% if file.path contains 'assets/screenshot/' %}
+                    var $screen = $(".iphoneScreen");
+                    $screen.attr({
+                        src: '{{ file.path | relative_url }}',
+                        alt: '{{ site.app_name }} App Interface Screenshot - Showcasing the recruiting dashboard and player profile features',
+                        loading: "eager",
+                        width: "375",
+                        height: "812",
+                        decoding: "async",
+                        fetchpriority: "high"
+                    });
+                    $screen.removeClass("hidden");
+                {% endif %}
+            {% endfor %}
+        };
+    });
+</script>
 
 {% for file in site.static_files %}
-    {% if file.path contains 'assets/screenshot/' %}
-        <script>
-            $(function() {
-                $(".iphoneScreen").attr('src', '{{ site.github.baseurl }}{{ file.path }}');
-                $(".iphoneScreen").removeClass("hidden");
-                console.log("{{ file.path }}");
-            });
-        </script>
-    {% elsif file.path contains 'assets/videos/' %}
+    {% if file.path contains 'assets/videos/' %}
         {% unless file.path contains 'assets/videos/Place-video-files-here.txt' %}
             <script>
                 $(function() {
-                    $(".iphoneScreen").addClass("hidden");
-                    console.log("remove screenshot");
+                    var $screen = $(".iphoneScreen");
+                    $screen.addClass("hidden");
                 });
             </script>
         {% endunless %}
-        {% if file.extname == ".mov" or file.extname == ".mp4" %}
+        {% if file.extname == ".mov" or file.extname == ".mp4" or file.extname == ".ogg" or file.extname == ".webm" %}
             <script>
                 $(function() {
-                    $(".videoContainer").removeClass("hidden");
-                    $(".screenvideo").append('<source src="{{ site.github.baseurl }}{{ file.path }}" type="video/mp4">');
-                    console.log("{{ file.path }}");
+                    var videoPath = '{{ file.path | relative_url }}';
+                    var videoType = '{{ file.extname | remove: "." }}';
+                    var $video = $(".screenvideo");
+                    var $container = $(".videoContainer");
+                    
+                    $container.removeClass("hidden");
+                    $video.attr({
+                        controls: 'controls',
+                        playsinline: 'playsinline',
+                        preload: 'metadata',
+                        poster: '{{ "/assets/screenshot/baseballboundscreen.jpeg" | relative_url }}',
+                        'aria-label': '{{ site.app_name }} App Demo Video',
+                        width: '375',
+                        height: '812'
+                    });
+                    
+                    var source = '<source src="' + videoPath + '" type="video/' + videoType + '">';
+                    var track = '<track kind="captions" src="{{ "/assets/captions/demo-captions.vtt" | relative_url }}" srclang="en" label="English" default>';
+                    var fallback = '<p>Your browser doesn\'t support HTML5 video. Here is a <a href="' + videoPath + '" download aria-label="Download {{ site.app_name }} demo video">link to the video</a> instead.</p>';
+                    
+                    $video.append(source + track + fallback);
                 });
             </script>
-        {% elsif file.extname == ".ogg" %}
-            <script>
-                $(function() {
-                    $(".videoContainer").removeClass("hidden");
-                    $(".screenvideo").append('<source src="{{ site.github.baseurl }}{{ file.path }}" type="video/ogg">');
-                    console.log("{{ file.path }}");
-                });
-            </script>
-        {% elsif file.extname == ".webm" %}
-        <script>
-            $(function() {
-                $(".videoContainer").removeClass("hidden");
-                $(".screenvideo").append('<source src="{{ site.github.baseurl }}{{ file.path }}" type="video/webm">');
-                console.log("{{ file.path }}");
-            });
-        </script>
         {% endif %}
     {% endif %}
 {% endfor %}

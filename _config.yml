@@ -1,130 +1,244 @@
-#page title
-page_title                                : Baseball Bound - Recruiting Assistant App for College Baseball                                        # Automatically populates with app name if not set and if iOS app ID is set. Otherwise enter manually.
+# Encoding and Core Settings
+encoding: UTF-8
+strict_front_matter: true
 
-# App Info
-ios_app_id                                : 1502937685                                # Required. Enter iOS app ID to automatically populate name, price and icons (e.g. 718043190).
-ios_app_country                           : us                                        # Required outside USA. Enter 2 letter country code as in https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-
-app_icon                                  : # assets/appicon.png                      # Automatically populates if not set and if iOS app ID is set.  Otherwise enter path to icon file manually.
-app_name                                  :                                           # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
-app_price                                 :                                           # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
-app_description                           : Own the recruiting process by putting every coach in your pocket!
-
-enable_smart_app_banner                   : true                                      # Set to true to show a smart app banner at top of page on mobile devices.
-
+# Jekyll Configuration
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-minifier
 
-# Analytics
+# Analytics and Performance Configuration
 google_analytics: G-5N6HK2SMN0
+google_analytics_options:
+  siteSpeedSampleRate: 100
+  anonymizeIp: true
+  cookieDomain: auto
 
-# Information About Yourself
-your_name                                 : AllTeamz                               
-your_link                                 : https://allteamz.com                     
-your_city                                 : Los Angeles                                
-email_address                             : ryan@allteamz.com
-facebook_username                         : allteamz                                          
-instagram_username                        : softballbound_app
-twitter_username                          : allteamz
-github_username                           : 
-youtube_username                          :
-logo                                      : /assets/bbicon.jpeg
-image                                     : assets/bbicon.jpeg
-site_name                                 : Baseball Bound - Recruiting Assistant App for College Baseball
-title                                     : Baseball Bound - Recruiting Assistant App for College Baseball
-description                               : Own the recruiting process by putting every coach in your pocket!
+# Site Settings
+page_title: "Baseball Bound - College Baseball Recruiting Assistant App | Find Your Perfect Program"
+title: "Baseball Bound - College Baseball Recruiting Assistant App | Find Your Perfect Program"
+description: "Baseball Bound helps athletes own their college baseball recruiting process with real-time access to over 1,200 NCAA, NAIA, and JUCO programs. Get coach contacts, program stats, and recruiting deadlines all in one place."
+keywords: "college baseball recruiting, baseball recruiting app, NCAA baseball programs, NAIA baseball, JUCO baseball, college baseball coaches, athletic recruiting"
+tagline: "Streamline Your College Baseball Recruiting Journey"
+site_name: "Baseball Bound"
+author: AllTeamz
 
-# Feature List                            Edit, add or remove features to be presented.
-features                                  :
+# App Info
+ios_app_id: 1502937685
+ios_app_country: us
+app_icon: /assets/bbicon.jpeg
+app_name: Baseball Bound
+app_price: ""
+app_description: "Own the recruiting process by putting every coach in your pocket!"
+enable_smart_app_banner: true
 
-  - title                                 : Easy to use interface
-    description                           : Sort and views schools by state, division, conference, or name.
-    fontawesome_icon_name                 : sort
-    
-  - title                                 : All NCAA, NAIA, and JUCO schools
-    description                           : Every college with baseball teams, over 1200 schools.
-    fontawesome_icon_name                 : school
+# Social Media and Contact
+your_name: AllTeamz
+your_link: https://allteamz.com
+your_city: Los Angeles
+email_address: ryan@allteamz.com
+facebook_username: allteamz
+instagram_username: softballbound_app
+twitter_username: allteamz
+github_username:
+youtube_username:
+logo: /assets/bbicon.jpeg
+image: assets/bbicon.jpeg
 
-  - title                                 : Contact information
-    description                           : Coach contact information for every school. Phone, email, and website.
-    fontawesome_icon_name                 : phone
+# Social Media Meta
+og_type: website
+og_image: assets/bbicon.jpeg
+og_site_name: "Baseball Bound"
+twitter_card: summary_large_image
+twitter_creator: "@allteamz"
+twitter_site: "@allteamz"
 
-  - title                                 : Important educational info
-    description                           : Size of school, graduation rates, percentage of freshman returning, average salary after graduation, average GPA and test scores (SAT, ACT)
-    fontawesome_icon_name                 : graduation-cap
+# Redirect Configuration
+defaults:
+  - scope:
+      path: "assets/screenshot"
+    values:
+      screenshot: true
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      redirect_from:
+        - /app
+        - /ios
+        - /download
+        - /install
+        - /baseball
+        - /recruiting
+        - /college-baseball
+        - /ncaa
+        - /naia
+        - /juco
+        - /baseballbound
+        - /baseball-bound
+        - /baseball_bound
+        - /baseballapp
+        - /baseball-app
+        - /recruit
+        - /recruiting-app
+        - /college
+        - /coaches
 
-  - title                                 : Updated in real-time
-    description                           : Information constantly updated. No need to pay for a new release or download an app update!
-    fontawesome_icon_name                 : marker
-  
-  - title                                 : Helpful notifications
-    description                           : Automatic notifications of important NCAA and NAIA dates and coach changes. Never miss a deadline or opportunity.
-    fontawesome_icon_name                 : bell
+# Asset Paths
+screenshot_path: "assets/screenshot/baseballboundscreen.jpeg"
+assets_path: "assets"
 
-  - title                                 : # New Feature Title
-    description                           : # New Feature Description
-    fontawesome_icon_name                 : # Enter Font Awesome icon name (e.g. star). Find icons on fontawesome.com/icons.
+# Asset Caching and Processing
+assets:
+  compress:
+    css: true
+    js: true
+  cache: true
+  cdn: false
+  skip_baseurl_with_cdn: false
+  skip_prefix_with_cdn: false
+  prefix: "/assets"
+  digest: true
+  source_maps: false
+  destination: "/assets"
+  compression: true
+  gzip: false
 
+# Performance Settings
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: [development]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
 
+jekyll-minifier:
+  exclude: ['*.xml']
+  uglifier_args:
+    harmony: true
+  compress_css: true
+  compress_javascript: true
+  js_compressor: uglifier
+  css_compressor: sass
+  html_compressor: zlib
 
-# Theme Settings
-topbar_color                              : "#000000"
-topbar_transparency                       : 0.1
-topbar_title_color                        : "#ffffff"
+# Build Settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
 
-cover_image                               : assets/baseball_header.jpeg                    # Replace with alternative image path or image URL.
-cover_overlay_color                       : "#363b3d"
-cover_overlay_transparency                : 0.8
-
-device_color                              : white                                     # Set to: blue, black, yellow, coral or white.
-
-body_background_color                     : "#ffffff"
-
-link_color                                : "#1d63ea"
-
-app_title_color                           : "#ffffff"
-app_price_color                           : "#ffffff"
-app_description_color                     : "#ffffff"
-
-feature_title_color                       : "#000000"
-feature_text_color                        : "#666666"
-
-feature_icons_foreground_color            : "#1d63ea"
-feature_icons_background_color            : "#e6e6e6"
-
-social_icons_foreground_color             : "#666666"
-social_icons_background_color             : "#e6e6e6"
-
-footer_text_color                         : "#666666"
-
-
-
-
-
-
-
-
-
-
-
-####################################################
-### Jekyll Configuration. No need to touch this. ###
-####################################################
-
-# Set the Sass partials directory, as we're using @imports
+# SASS Configuration
 sass:
-  style: :compressed # You might prefer to minify using :compressed
+  style: compressed
+  implementation: sass-embedded
+  sass_dir: _sass
+  load_paths:
+    - _sass
+    - node_modules
 
-# Exclude these files from your production _site
+# Encoding and Processing
+encoding: UTF-8
+strict_front_matter: true
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+# Exclude files from build
 exclude:
   - LICENSE
   - README.md
   - CNAME
 
+# Theme Settings
+topbar_color: "#000000"
+topbar_transparency: 0.1
+topbar_title_color: "#ffffff"
+
+cover_image: /assets/baseball_header.jpeg
+cover_overlay_color: "#363b3d"
+cover_overlay_transparency: 0.8
+
+device_color: /assets/black.png
+body_background_color: "#ffffff"
+
+screenshot_path: /assets/screenshot/baseballboundscreen.jpeg
+
+link_color: "#1d63ea"
+
+app_title_color: "#ffffff"
+app_price_color: "#ffffff"
+app_description_color: "#ffffff"
+
+feature_title_color: "#000000"
+feature_text_color: "#666666"
+
+feature_icons_foreground_color: "#1d63ea"
+feature_icons_background_color: "#e6e6e6"
+
+social_icons_foreground_color: "#666666"
+social_icons_background_color: "#e6e6e6"
+
+footer_text_color: "#666666"
+
+# Feature List
+features:
+  - title: Complete College Database
+    description: Access detailed information for over 1,200 NCAA, NAIA, and JUCO baseball programs. Find your perfect fit with comprehensive program data.
+    fontawesome_icon_name: school
+    
+  - title: Direct Coach Contact
+    description: Connect directly with college coaches through verified contact information including phone, email, and program websites.
+    fontawesome_icon_name: phone
+
+  - title: Smart Program Filtering
+    description: Easily find schools matching your criteria by state, division, conference, or name with our intuitive interface.
+    fontawesome_icon_name: sort
+
+  - title: Academic Success Metrics
+    description: Make informed decisions with key statistics on graduation rates, student retention, average GPAs, and post-graduation success.
+    fontawesome_icon_name: graduation-cap
+
+  - title: Real-time Updates
+    description: Stay current with automatic updates on coach changes, program information, and recruiting deadlines - no manual updates needed.
+    fontawesome_icon_name: marker
+  
+  - title: Recruiting Timeline Alerts
+    description: Never miss important NCAA and NAIA deadlines with smart notifications that keep your recruiting journey on track.
+    fontawesome_icon_name: bell
+
+# Collections
 collections:
   pages:
     output: true
     permalink: /:path/
 
-# Markdown rendering
-markdown: kramdown
+# Jekyll Feed Configuration
+feed:
+  path: feed.xml
+  posts_limit: 20
+  excerpt_only: true
+
+# Jekyll SEO Tag Configuration
+social:
+  name: Baseball Bound
+  links:
+    - https://twitter.com/allteamz
+    - https://www.facebook.com/allteamz
+    - https://www.instagram.com/softballbound_app
+
+# Additional SEO Settings
+lang: en_US
+locale: en_US
+url: "https://allteamz.com"
+baseurl: ""

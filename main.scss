@@ -1,11 +1,19 @@
 ---
-# Front matter comment to ensure Jekyll properly reads file.
 ---
 
-$body-color: {{ site.body_background_color }};
+@charset "utf-8";
 
-$header-image: "{{ site.cover_image }}";
-$device-color: "assets/{{ site.device_color }}.png";
+// Site Variables
+$body-color: #ffffff !default;
+$header-image: none !default;
+$device-color: none !default;
+
+// Import base styles and components
+@import 
+    "variables",
+    "base",
+    "layout",
+    "github-markdown";
 
 $accent-color: {{ site.link_color }};
 

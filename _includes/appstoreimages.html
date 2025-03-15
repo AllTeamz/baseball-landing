@@ -15,8 +15,11 @@ $(function() {
             console.info("Image strings loaded from Apple API.");
             var appInfo = json.results[0];
 
-            // Set favicon
-            $('link[rel="shortcut icon"]').attr("href", appInfo.artworkUrl512);
+            // Set favicon with type
+            $('link[rel="shortcut icon"]').attr({
+                "href": appInfo.artworkUrl512,
+                "type": "image/png"
+            });
 
             // Set page title using the iOS app ID if it is not set manually in _config.yml
             var $pageTitle = $(".pageTitle");
@@ -27,13 +30,21 @@ $(function() {
             // Set large app icon using the iOS app ID if it is not set manually in _config.yml
             var $appIconLarge = $(".appIconLarge");
             if (!$appIconLarge.attr('src')) {
-                $($appIconLarge).attr("src", appInfo.artworkUrl512);
+                $($appIconLarge).attr({
+                    "src": appInfo.artworkUrl512,
+                    "alt": appInfo.trackName + " App Icon",
+                    "loading": "lazy"
+                });
             }
 
             // Set header app icon using the iOS app ID if it is not set manually in _config.yml
             var $appIconHeader = $(".headerIcon");
             if (!$appIconHeader.attr('src')) {
-                $($appIconHeader).attr("src", appInfo.artworkUrl512);
+                $($appIconHeader).attr({
+                    "src": appInfo.artworkUrl512,
+                    "alt": appInfo.trackName + " Header Icon",
+                    "loading": "lazy"
+                });
             }
 
             // Set app name using the iOS app ID if it is not set manually in _config.yml
@@ -57,7 +68,11 @@ $(function() {
             // Set App Store link using the iOS app ID if it is not set manually in _config.yml
             var $appStoreLink = $(".appStoreLink");
             if ($.trim($appStoreLink.attr('href')).length == 0) {
-                $($appStoreLink).attr("href", appInfo.trackViewUrl);
+                $($appStoreLink).attr({
+                    "href": appInfo.trackViewUrl,
+                    "aria-label": "Download " + appInfo.trackName + " on the App Store",
+                    "rel": "noopener"
+                });
             }
 
             console.info(appInfo);

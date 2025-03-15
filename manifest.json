@@ -1,0 +1,34 @@
+{
+  "name": "{{ site.app_name }}",
+  "short_name": "Baseball Bound",
+  "description": "{{ site.description }}",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "{{ site.topbar_color }}",
+  "icons": [
+    {
+      "src": "{{ site.app_icon | relative_url }}",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "baseball", "recruiting"],
+  "screenshots": [
+    {
+      "src": "/assets/screenshot/baseballboundscreen.jpeg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Baseball Bound App Interface"
+    }
+  ],
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://apps.apple.com/app/id{{ site.ios_app_id }}"
+    }
+  ]
+}
