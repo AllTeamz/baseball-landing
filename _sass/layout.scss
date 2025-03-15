@@ -6,7 +6,7 @@
 		rgba($image-overlay-color, $image-overlay-transparency), 
 		rgba($image-overlay-color, $image-overlay-transparency)
 		   ),
-		url('/assets/baseball_header.jpeg');
+		$header-image;
 
 	background-repeat: no-repeat;
 	background-size: cover;
