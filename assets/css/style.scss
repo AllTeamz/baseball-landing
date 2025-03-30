@@ -8,8 +8,7 @@ layout: null
 @import "variables";
 
 // Import base styles and components
-@import 
-    "base",
-    "layout",
-    "github-markdown",
-    "reviews";
+@import "base";
+@import "layout";
+@import "github-markdown";
+@import "reviews";
