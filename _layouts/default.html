@@ -51,11 +51,7 @@ layout: base
                                 <img class="appStore" src="{{ '/assets/appstore.png' | relative_url }}" alt="App Store Download Button">
                             </a>
                         </div>
-                        <div class="reviewsContainer" aria-live="polite">
-                            <div class="tagline">
-                                <div class="review-placeholder">Loading App Store reviews...</div>
-                            </div>
-                        </div>
+                        {% include reviews.html %}
                     </section>
         {% include features.html %}
         {% include appstoreimages.html %}
