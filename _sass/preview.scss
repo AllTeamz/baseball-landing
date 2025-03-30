@@ -1,10 +1,6 @@
 // iPhone Preview Section
 .iphonePreview {
     grid-area: i;
-    background-image: url("../assets/black.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     margin-top: -40px;
     position: relative;
     width: 400px;
@@ -15,19 +11,13 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
-    transition: transform 0.3s ease;
 
     .iphoneScreen {
         width: 349px;
         height: 698px;
-        object-fit: cover;
-        position: absolute;
-        top: 60px;
-        left: 26px;
-        z-index: 1;
+        object-fit: contain;
+        max-width: 100%;
     }
-
-
 
     @media only screen and (max-width: 992px) {
         width: 375px;
@@ -37,9 +27,7 @@
 
         .iphoneScreen {
             width: 327px;
-            height: 708px;
-            top: 29.5px;
-            left: 24px;
+            height: 654px;
         }
     }
 
@@ -51,9 +39,7 @@
 
         .iphoneScreen {
             width: 279px;
-            height: 604px;
-            top: 25.5px;
-            left: 20.5px;
+            height: 558px;
         }
     }
 
