@@ -41,6 +41,8 @@
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	position: relative;
+	z-index: 1;
 
 	.siteHeader {
 		height: 115px;
@@ -48,6 +50,8 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 30px;
+		position: relative;
+		z-index: 3;
 
 		@media only screen and (max-width: 768px) {
 			height: 80px;
@@ -57,15 +61,45 @@
 
 	.landingContent {
 		flex: 1;
+		position: relative;
+		z-index: 1;
+		padding-top: 20px;
 		
 		.landingGrid {
 			display: grid;
-			grid-template-columns: repeat(12, 1fr);
+			grid-template-columns: 7fr 5fr;
 			grid-template-rows: auto auto;
-			grid-column-gap: 30px;
+			grid-gap: 40px;
 			grid-template-areas: 
-				"p p p p p i i i i i i i"
-				"c c c c c c c c c c c c";
+				"i p"
+				"c c";
+			max-width: 1200px;
+			margin: -40px auto 0;
+			padding: 0 25px;
+			
+			@media only screen and (max-width: 992px) {
+				grid-template-columns: 1fr;
+				grid-template-areas: 
+					"i"
+					"p"
+					"c";
+				grid-gap: 25px;
+				margin-top: 0;
+				padding: 20px;
+				max-width: 600px;
+			}
+
+			@media only screen and (max-width: 768px) {
+				padding: 15px;
+				grid-gap: 20px;
+				margin-top: 0;
+			}
+
+			@media only screen and (max-width: 480px) {
+				padding: 10px;
+				grid-gap: 15px;
+				margin-top: 0;
+			}
 		}
 	}
 
@@ -119,27 +153,7 @@
 
 
 
-@media only screen and (max-width: 768px) {
 
-	.container {					// Set up the container for the site content
-		grid-template-rows: 80px 811px auto auto;
-	}
-}
-
-@media only screen and (max-width: 992px) {
-
-	.container {
-		grid-column-gap: 0px;
-		grid-template-columns: 1;
-		grid-template-rows: 115px auto auto auto auto;
-		grid-template-areas: 
-			"h h h h h h h h h h h h"
-			"i i i i i i i i i i i i"
-			"p p p p p p p p p p p p"
-			"c c c c c c c c c c c c"
-			"f f f f f f f f f f f f";
-	}
-}
 
 .page {
 	grid-area: p;
@@ -671,54 +685,6 @@ nav > ul li a:active {
 	display: block;
 	margin: 0;
 	padding: 0;
-}
-
-
-
-// iPhone Device Preview
-
-.iphonePreview {
-	grid-area: p;
-	position: relative;
-	width: 400px;
-	height: 800px;
-	margin: 68px auto 0;
-	background-image: url('/assets/black.png');
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	@media only screen and (max-width: 768px) {
-		width: 100%;
-		max-width: 400px;
-		height: 0;
-		padding-bottom: 200%;
-		margin-top: 30px;
-	}
-}
-
-.iphoneScreen {
-	width: 349px;
-	-webkit-clip-path: url(#screenMask);
-	clip-path: url(#screenMask);
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1;
-	display: block;
-	max-width: 87%;
-	height: auto;
-	margin-top: -10px;
-
-	@media only screen and (max-width: 768px) {
-		width: 87%;
-		top: 2.5%;
-		transform: translateX(-50%);
-	}
 }
 
 .videoContainer {

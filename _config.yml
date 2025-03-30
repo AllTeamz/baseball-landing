@@ -88,7 +88,7 @@ defaults:
         - /coaches
 
 # Asset Paths
-screenshot_path: "assets/screenshot/baseballboundscreen.jpeg"
+screenshot_path: "assets/blue_ss.png"
 assets_path: "assets"
 
 # Asset Caching and Processing
@@ -182,7 +182,7 @@ cover_overlay_transparency: 0.8
 device_color: /assets/black.png
 body_background_color: "#ffffff"
 
-screenshot_path: /assets/screenshot/baseballboundscreen.jpeg
+screenshot_path: /assets/blue_ss.png
 
 link_color: "#1d63ea"
 

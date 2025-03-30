@@ -1,7 +1,7 @@
 <script>
     $(function() {
         // Preload the screenshot with proper path handling
-        var screenshotPath = '{{ "/assets/screenshot/baseballboundscreen.jpeg" | relative_url }}';
+        var screenshotPath = '{{ "/assets/blue_ss.png" | relative_url }}';
         var img = new Image();
         img.src = screenshotPath;
         
@@ -66,7 +66,7 @@
                         controls: 'controls',
                         playsinline: 'playsinline',
                         preload: 'metadata',
-                        poster: '{{ "/assets/screenshot/baseballboundscreen.jpeg" | relative_url }}',
+                        poster: '{{ "/assets/blue_ss.png" | relative_url }}',
                         'aria-label': '{{ site.app_name }} App Demo Video',
                         width: '375',
                         height: '812'

@@ -1,0 +1,449 @@
+// iPhone Preview Section
+.iphonePreview {
+    grid-area: i;
+    background-image: url("../assets/black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -40px;
+    position: relative;
+    width: 400px;
+    height: 818px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: transform 0.3s ease;
+
+    .iphoneScreen {
+        width: 349px;
+        height: 755px;
+        object-fit: cover;
+        position: absolute;
+        top: 32px;
+        left: 26px;
+        z-index: 1;
+    }
+
+
+
+    @media only screen and (max-width: 992px) {
+        width: 375px;
+        height: 767px;
+        margin: 0 auto;
+        transform: scale(0.95);
+        transform-origin: top center;
+        margin-top: 0;
+
+        .iphoneScreen {
+            width: 327px;
+            height: 708px;
+            top: 29.5px;
+            left: 24px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        width: 320px;
+        height: 654px;
+        margin: 0 auto;
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin-top: 0;
+
+        .iphoneScreen {
+            width: 279px;
+            height: 604px;
+            top: 25.5px;
+            left: 20.5px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        width: 280px;
+        height: 572px;
+        margin: 0 auto;
+        transform: scale(0.85);
+        transform-origin: top center;
+        margin-top: 0;
+
+        .iphoneScreen {
+            width: 244px;
+            height: 528px;
+            top: 22.5px;
+            left: 18px;
+        }
+    }
+}
+
+// App Info Section
+.appInfo {
+    grid-area: p;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .appIconShadow {
+        width: 120px;
+        height: 120px;
+        filter: $drop-shadow;
+        margin-bottom: 24px;
+        position: relative;
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .appIconLarge {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+        }
+    }
+
+    .appNamePriceContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        width: 100%;
+
+        .appName {
+            color: $app-title-color;
+            font-weight: bold;
+            font-size: 3.6rem;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .appPrice {
+            color: $app-price-color;
+            font-weight: normal;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+    }
+
+    .appDescriptionContainer {
+        align-self: flex-start;
+        margin-bottom: 24px;
+        width: 100%;
+
+        .appDescription {
+            color: $app-description-color;
+            font-size: 2rem;
+            line-height: 1.5;
+        }
+    }
+
+    .downloadButtonsContainer {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+
+        img {
+            height: auto;
+            max-width: 200px;
+        }
+    }
+
+    .reviewsContainer {
+        width: 100%;
+        margin: 30px 0;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        padding: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        .tagline {
+            text-align: left;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .review {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.2s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+            }
+            
+            .review-title {
+                font-weight: bold;
+                font-size: 1.7rem;
+                color: #fff;
+                margin-bottom: 12px;
+            }
+            
+            .review-text {
+                font-size: 1.5rem;
+                color: rgba(255, 255, 255, 0.95);
+                line-height: 1.6;
+                margin-bottom: 15px;
+                display: -webkit-box;
+                display: -moz-box;
+                display: box;
+                -webkit-line-clamp: 3;
+                -moz-line-clamp: 3;
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+                -moz-box-orient: vertical;
+                box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .review-rating {
+                color: #ffd700;
+                font-size: 1.5rem;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                &::before {
+                    content: '★';
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        margin-top: 20px;
+        align-items: center;
+        text-align: center;
+        padding: 25px;
+
+        .appIconShadow {
+            margin: 0 auto 25px;
+        }
+
+        .appNamePriceContainer {
+            align-items: center;
+            margin-bottom: 25px;
+
+            .appName {
+                font-size: 3.2rem;
+                text-align: center;
+            }
+
+            .appPrice {
+                font-size: 2rem;
+                text-align: center;
+            }
+        }
+
+        .appDescriptionContainer {
+            text-align: center;
+            margin-bottom: 25px;
+
+            .appDescription {
+                font-size: 1.8rem;
+                line-height: 1.6;
+            }
+        }
+
+        .downloadButtonsContainer {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            gap: 15px;
+
+            img {
+                max-width: 180px;
+                height: auto;
+                transition: transform 0.2s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        .reviewsContainer {
+            margin: 35px 0;
+            border-radius: 24px;
+            padding: 30px 25px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            .tagline {
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 30px;
+                color: #fff;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+
+            .review {
+                padding: 25px;
+                margin-bottom: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 16px;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                
+                .review-title {
+                    font-size: 1.7rem;
+                    line-height: 1.4;
+                    margin-bottom: 15px;
+                    color: #fff;
+                    font-weight: 600;
+                }
+                
+                .review-text {
+                    font-size: 1.5rem;
+                    line-height: 1.6;
+                    margin-bottom: 15px;
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: box;
+                    -webkit-line-clamp: 4;
+                    -moz-line-clamp: 4;
+                    line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    -moz-box-orient: vertical;
+                    box-orient: vertical;
+                    overflow: hidden;
+                    color: rgba(255, 255, 255, 0.95);
+                }
+
+                .review-rating {
+                    font-size: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    margin-top: 12px;
+                    color: #FFD700;
+                    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        margin-top: 20px;
+
+        .appNamePriceContainer {
+            .appName {
+                font-size: 2.8rem;
+            }
+
+            .appPrice {
+                font-size: 1.8rem;
+            }
+        }
+
+        .appDescriptionContainer {
+            .appDescription {
+                font-size: 1.6rem;
+            }
+        }
+
+        .downloadButtonsContainer img {
+            max-width: 160px;
+        }
+    }
+}
+
+// Mobile Responsiveness
+@media only screen and (max-width: 992px) {
+    .iphonePreview {
+        margin: 0 auto;
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
+
+    .appInfo {
+        margin-top: 50px;
+        align-items: center;
+        text-align: center;
+
+        .appIconShadow {
+            margin: 0 auto 30px;
+        }
+
+        .appNamePriceContainer {
+            align-items: center;
+        }
+
+        .appDescriptionContainer {
+            align-self: center;
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .iphonePreview {
+        transform: scale(0.8);
+        margin-top: -50px;
+    }
+
+    .appInfo {
+        margin-top: 30px;
+
+        .appNamePriceContainer {
+            .appName {
+                font-size: 3.6rem;
+            }
+
+            .appPrice {
+                font-size: 2rem;
+            }
+        }
+
+        .appDescriptionContainer {
+            .appDescription {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .downloadButtonsContainer {
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 0;
+
+        a {
+            margin: 10px 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .iphonePreview {
+        transform: scale(0.7);
+        margin-top: -70px;
+    }
+}
